@@ -23,6 +23,8 @@ And simply download two files from repo:
 - tomlifier.py
 - build.py
 
+<i>(i want to warn you, when downloading these files, do not send them anywhere separately! they must be in same folder!)</i>
+
 then as you downloaded, open cmd and type:
 ```
 py build.py
