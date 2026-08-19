@@ -23,7 +23,7 @@ And simply download two files from repo:
 - tomlifier.py
 - build.py
 
-<i>(i want to warn you, when downloading these files, do not send them anywhere separately! they must be in same folder!)</i>
+<i>(i want to warn you, when downloading these files, do not send them anywhere separately! they must be in same folder! because if not in same folder, build.py file will give you error that tomlifier.py is missing it wont see that file or if tomlifier been renamed!)</i>
 
 then as you downloaded, open cmd and type:
 ```
