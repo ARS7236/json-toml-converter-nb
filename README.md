@@ -2,6 +2,8 @@
 ## An Tool that converts content.json file into content.toml file
 
 So basically this tool is meant for Null's Brawl Mods modders who want to convert their content.json into content.toml file,
+
+
 I know, that's useless and why would you needed it, but who want's it? 
 (me just because im bored)
 
@@ -20,6 +22,7 @@ simply there's premade file in the repo called "build.py"
 And simply download two files from repo:
 - tomlifier.py
 - build.py
+
 then as you downloaded, open cmd and type:
 ```
 py build.py
