@@ -1,6 +1,6 @@
 # Tomlify - A simple tool to convert JSON files to TOML format or TOML files to JSON format.
 # Author: ars7236
-# Version: 2.5.0 - Deep Cavern
+# Version: 2.5.1 - Deep Cavern[Hot Sea]
 # License: GNU General Public License v3.0
 
 import os
@@ -9,7 +9,7 @@ import modules.json_to_toml as JSONToTOMLConverter
 import modules.toml_to_json as TOMLToJSONConverter
 
 PROGRAM_NAME = "Tomlify"
-VERSION = "v2.5.0 - Deep Cavern"
+VERSION = "v2.5.1 - Deep Cavern[Hot Sea]"
 AUTHOR = "ars7236"
 
 def print_info():
