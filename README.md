@@ -1,8 +1,8 @@
-# Tomlify/JSONify
+# Tomlify
 An Tool that converts content.json file into content.toml file.
 
 ## EN: 
-# Tomlify/JSONify
+# Tomlify
 # Version 2.5.0 - Deep Cavern
 So there's two versions(one is coming soon) of this README.
 
@@ -11,7 +11,7 @@ If you want use ENG version then use [this README](https://github.com/ARS7236/js
 OR if you want to use RUS version then use [this README](https://github.com/ARS7236/json-toml-converter-nb/README_RU.md) file.
 
 ## RU:
-# Tomlify/JSONify
+# Tomlify
 # Версия 2.5.0 - Глубокая Впадина
 Так там есть две версии(один который будет скоро) этого README.
 
