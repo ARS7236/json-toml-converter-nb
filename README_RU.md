@@ -1,4 +1,4 @@
-# Tomlify/JSONify
+# Tomlify
 ## Инструмент для преобразования JSON в TOML и TOML в JSON
 
 Этот инструмент предназначен для модмейкеров Null's Brawl, которым нужно преобразовывать файлы `content.json` в `content.toml` и обратно.
