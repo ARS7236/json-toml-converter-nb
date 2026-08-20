@@ -40,3 +40,4 @@ tomlify.exe jsonify <content.toml> [content.json]
 py build.py
 ```
 Также можно дважды щёлкнуть по файлу `build.py`, чтобы запустить сборку.
+И все сделано со сборкой. (^_^)
