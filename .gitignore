@@ -24,4 +24,4 @@ dist/
 .DS_Store
 Thumbs.db
 *.toml
-content.json
+*.json

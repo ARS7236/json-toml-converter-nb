@@ -1,15 +1,15 @@
-# Tomlify/Jsonify - A simple tool to convert JSON files to TOML format or TOML files to JSON format.
+# Tomlify - A simple tool to convert JSON files to TOML format or TOML files to JSON format.
 # Author: ars7236
-# Version: 1.5.0
+# Version: 2.5.0 - Deep Cavern
 # License: GNU General Public License v3.0
 
-import json
 import os
 import sys
-import tomli_w
+import modules.json_to_toml as JSONToTOMLConverter
+import modules.toml_to_json as TOMLToJSONConverter
 
-PROGRAM_NAME = "Tomlify/Jsonify"
-VERSION = "v2.0.0"
+PROGRAM_NAME = "Tomlify"
+VERSION = "v2.5.0 - Deep Cavern"
 AUTHOR = "ars7236"
 
 def print_info():
@@ -22,87 +22,42 @@ def print_help_info_tomlify():
     print("<content.json> is your input json file you want to convert")
     print("<content.toml> is the output toml file")
     print("Usage:")
-    print("tomlifier.exe <content.json> <content.toml>\n")
+    print("tomlify.exe tomlify <content.json> [content.toml]\n")
 
-def clean_nulls(data):
-    if isinstance(data, dict):
-        return {k: clean_nulls(v) for k, v in data.items() if v is not None}
-    elif isinstance(data, list):
-        return [clean_nulls(v) for v in data if v is not None]
-    return data
-
-def convert_json_to_toml(json_path: str, output_toml_path: str) -> None:
-    if not os.path.exists(json_path):
-        print(f"Error: Target file '{json_path}' was not found.")
-        return
-
-    with open(json_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    data.pop("$schema", None)
-    clean_data = clean_nulls(data)
-
-    # 1. Extract scalar fields for the very top (@author, @gv)
-    top_meta = {}
-    if "@author" in clean_data:
-        top_meta["@author"] = clean_data.pop("@author")
-    if "@gv" in clean_data:
-        top_meta["@gv"] = clean_data.pop("@gv")
-    if "@version" in clean_data:
-        top_meta["@version"] = clean_data.pop("@version")
-    else:
-        top_meta["@version"] = "1.0.0"  # Default version if not present
-    if not top_meta:
-        top_meta = None  # If no top meta fields, set to None
-
-    # 2. Extract title and description tables
-    title_data = {"@title": clean_data.pop("@title")} if "@title" in clean_data else {}
-    desc_data = {"@description": clean_data.pop("@description")} if "@description" in clean_data else {}
-
-    # 3. Serialize each section separately
-    meta_toml = tomli_w.dumps(top_meta) if top_meta else ""
-    title_toml = tomli_w.dumps(title_data) if title_data else ""
-    desc_toml = tomli_w.dumps(desc_data) if desc_data else ""
-    remaining_toml = tomli_w.dumps(clean_data) if clean_data else ""
-
-    # 4. Assemble final file structure
-    header = (
-        "# This toml file was converted and formatted in Tomlify program by ARS7236\n"
-        "# Tomlify version: 2.5.0\n"
-        "# Build date: 2026-08-20\n"
-        "# This file is generated from a JSON file and may not be perfect. Please check the output for any issues.\n"
-        "# If you find any issues, please report them to the author on github.\n"
-        "# For more information, visit: https://github.com/ARS7236/Tomlify/README.md\n"
-        "# This file is intended for use with Nulls' Brawl Mods and may not be compatible with other tools(like BSML by lilmuff1 on github).\n"
-        "# If you are using this file with Nulls' Brawl Mod, please ensure that you have the latest version of the nulls brawl installed.\n"
-        "# Tomlify is not responsible for any issues that may arise from using this file with other tools.\n"
-        "# If you are using this file with other tools, please ensure that you have the latest version of those tools installed.\n"
-        "# Use schema in your IDE: https://ext.nulls.gg/mods/schema/schema.json\n\n"
-    )
-
-    final_content = header
-    if meta_toml:
-        final_content += meta_toml + "\n"
-    if title_toml:
-        final_content += title_toml + "\n"
-    if desc_toml:
-        final_content += desc_toml + "\n"
-    if remaining_toml:
-        final_content += remaining_toml
-
-    # 5. Save to output
-    with open(output_toml_path, "w", encoding="utf-8") as f:
-        f.write(final_content)
-
-    print(f"Successfully converted '{json_path}' -> '{output_toml_path}'")
+def print_help_info_jsonify():
+    print_info()
+    print("How to use it:")
+    print("<content.toml> is your input toml file you want to convert")
+    print("<content.json> is the output json file")
+    print("Usage:")
+    print("tomlify.exe jsonify <content.toml> [content.json]\n")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print_info()
     elif sys.argv[1] in ("-h", "--help") and ("tomlify" in sys.argv):
         print_help_info_tomlify()
+    elif sys.argv[1] in ("-h", "--help") and ("jsonify" in sys.argv):
+        print_help_info_jsonify()
+    elif sys.argv[1] == "tomlify":
+        if len(sys.argv) not in (3, 4):
+            print_help_info_tomlify()
+        else:
+            json_path = sys.argv[2]
+            base_name, _ = os.path.splitext(json_path)
+            output_toml_path = sys.argv[3] if len(sys.argv) == 4 else f"{base_name}.toml"
+            converter = JSONToTOMLConverter.JSONToTOMLConverter()
+            converter.convert_json_to_toml(json_path, output_toml_path)
+    elif sys.argv[1] == "jsonify":
+        if len(sys.argv) not in (3, 4):
+            print_help_info_jsonify()
+        else:
+            toml_path = sys.argv[2]
+            base_name, _ = os.path.splitext(toml_path)
+            output_json_path = sys.argv[3] if len(sys.argv) == 4 else f"{base_name}.json"
+            converter = TOMLToJSONConverter.TOMLToJSONConverter()
+            converter.convert_toml_to_json(toml_path, output_json_path)
     else:
-        input_file = sys.argv[1]
-        base_name, _ = os.path.splitext(input_file)
-        output_file = sys.argv[2] if len(sys.argv) > 2 else f"{base_name}.toml"
-        convert_json_to_toml(input_file, output_file)
+        print_info()
+        print("Error: Invalid command. Use 'tomlify' or 'jsonify'.")
+        print("Use '-h' or '--help' for more information.")

@@ -1,35 +1,42 @@
 # Tomlify/JSONify
-## An Tool that converts content.json file into content.toml file
+## A tool that converts JSON files to TOML and TOML files to JSON
 
-So basically this tool is meant for Null's Brawl Mods modders who want to convert their content.json into content.toml file.
+This tool is intended for Null's Brawl Mods modders who need to convert their `content.json` files to `content.toml`, or convert TOML files back to JSON.
 
 I know, that's useless and why would you needed it, but who want's it? 
 (me just because im bored).
 
-## How to use it?
-- Download the tomlifier.exe from [releases](https://github.com/ARS7236/json-toml-converter-nb/releases)
-  - Recommended after downloading that tool to place where your content.json is, or drag your content.json to place where that tool is.
-- Then Use it as:
+Current version is 2.5.0 Deep Cavern.
+
+## How to use it
+- Download `tomlify.exe` from [releases](https://github.com/ARS7236/json-toml-converter-nb/releases).
+- Place the executable in the same folder as the file you want to convert, or provide file paths explicitly.
+
+### JSON to TOML
+The output file is optional. If omitted, a `.toml` file is created next to the input JSON file.
 ```
-tomlifier.exe <content.json> <content.toml>
+tomlify.exe tomlify <content.json> [content.toml]
 ```
-Simple isn't it?
+
+### TOML to JSON
+The output file is optional. If omitted, a `.json` file is created next to the input TOML file.
+```text
+tomlify.exe jsonify <content.toml> [content.json]
+```
+
+For help, use `tomlify.exe --help tomlify` or `tomlify.exe --help jsonify`.
 
 ## Build
-If you want to build from your pc then
-simply there's premade file in the repo called "build.py"
-And simply download two files from repo:
+To build the tool on your PC, use the included `build.py` script. Keep the script, the entry point, and the `modules` folder together:
+- `build.py`
 - tomlify.py
-- build.py
+- `modules/json_to_toml.py`
+- `modules/toml_to_json.py`
 
-<i>(i want to warn you, when downloading these files, do not send them anywhere separately! they must be in same folder! because if not in same folder, build.py file will give you error that tomlify.py is missing it wont see that file or if tomlifiy been renamed!)</i>
+The build script uses PyInstaller and includes both converter modules in the executable. It places the finished `tomlify.exe` in the project root and removes temporary build files.
 
-then as you downloaded, open cmd and type:
+Open a command prompt in the project folder and run:
 ```
 py build.py
 ```
-or simply just double-click on build.py and it will build the tool(the exe will be in dist folder once it done). or same using cmd, just type:
-```
-build.py
-```
-and done with build! (^_^)
+You can also double-click `build.py` to start the build.
