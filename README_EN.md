@@ -9,7 +9,7 @@ I know, that's useless and why would you needed it, but who want's it?
 Current version is 2.5.0 Deep Cavern.
 
 ## How to use it
-- Download `tomlify.exe` from latest [release](https://github.com/ARS7236/json-toml-converter-nb/releases).
+- Download `tomlify.exe` from latest [release](https://github.com/ARS7236/json-toml-converter-nb/releases/latest).
 - Place the executable in the same folder as the file you want to convert, or provide file paths explicitly.
 
 ### JSON to TOML
