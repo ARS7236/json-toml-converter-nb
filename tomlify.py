@@ -1,4 +1,4 @@
-# Tomlify - A simple tool to convert JSON files to TOML format.
+# Tomlify/Jsonify - A simple tool to convert JSON files to TOML format or TOML files to JSON format.
 # Author: ars7236
 # Version: 1.5.0
 # License: GNU General Public License v3.0
@@ -8,7 +8,7 @@ import os
 import sys
 import tomli_w
 
-PROGRAM_NAME = "Tomlify"
+PROGRAM_NAME = "Tomlify/Jsonify"
 VERSION = "v2.0.0"
 AUTHOR = "ars7236"
 
@@ -16,12 +16,7 @@ def print_info():
     print(f"{PROGRAM_NAME} {VERSION}")
     print(f"Created by: {AUTHOR}\n")
 
-def print_help_info_new():
-    print_info()
-    print("Usage: python tomlify.py <input_json_file> [output_toml_file]")
-    print("If output_toml_file is not provided, it will default to the input file name with a .toml extension.")
-
-def print_help_info_old():
+def print_help_info_tomlify():
     print_info()
     print("How to use it:")
     print("<content.json> is your input json file you want to convert")
@@ -73,7 +68,7 @@ def convert_json_to_toml(json_path: str, output_toml_path: str) -> None:
     # 4. Assemble final file structure
     header = (
         "# This toml file was converted and formatted in Tomlify program by ARS7236\n"
-        "# Tomlify version: 2.0.0\n"
+        "# Tomlify version: 2.5.0\n"
         "# Build date: 2026-08-20\n"
         "# This file is generated from a JSON file and may not be perfect. Please check the output for any issues.\n"
         "# If you find any issues, please report them to the author on github.\n"
@@ -82,7 +77,7 @@ def convert_json_to_toml(json_path: str, output_toml_path: str) -> None:
         "# If you are using this file with Nulls' Brawl Mod, please ensure that you have the latest version of the nulls brawl installed.\n"
         "# Tomlify is not responsible for any issues that may arise from using this file with other tools.\n"
         "# If you are using this file with other tools, please ensure that you have the latest version of those tools installed.\n"
-        "# Use schema: https://ext.nulls.gg/mods/schema/schema.json\n\n"
+        "# Use schema in your IDE: https://ext.nulls.gg/mods/schema/schema.json\n\n"
     )
 
     final_content = header
@@ -104,10 +99,8 @@ def convert_json_to_toml(json_path: str, output_toml_path: str) -> None:
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print_info()
-    elif sys.argv[1] in ("-h", "--help"):
-        print_help_info_new()
-    elif sys.argv[0].endswith("tomlify.py"):
-        print_help_info_old()
+    elif sys.argv[1] in ("-h", "--help") and ("tomlify" in sys.argv):
+        print_help_info_tomlify()
     else:
         input_file = sys.argv[1]
         base_name, _ = os.path.splitext(input_file)
