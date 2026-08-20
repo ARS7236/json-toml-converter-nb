@@ -18,5 +18,3 @@ OR if you want to use RUS version then use [this README](https://github.com/ARS7
 Если хотите использовать АНГЛ версию то используйте [этот README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_EN.md) файл.
 
 ИЛИ если хотите использовать РУС версию то используйте [этот README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_RU.md
-
-ИЛИ Если хотите использовать РУС версию то используйте [этот README](https://github.com/ARS7236/json-toml-converter-nb/README_RU.md) файл.
