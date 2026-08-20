@@ -1,19 +1,32 @@
+# Tomlify - A simple tool to convert JSON files to TOML format.
+# Author: ars7236
+# Version: 1.5.0
+# License: GNU General Public License v3.0
+
 import json
 import os
 import sys
 import tomli_w
 
-PROGRAM_NAME = "JSON to TOML Converter"
-VERSION = "v1.0.0"
+PROGRAM_NAME = "Tomlify"
+VERSION = "v1.5.0"
 AUTHOR = "ars7236"
 
-def print_help_info():
+def print_info():
     print(f"{PROGRAM_NAME} {VERSION}")
     print(f"Created by: {AUTHOR}\n")
+
+def print_help_info_new():
+    print_info()
+    print("Usage: python tomlify.py <input_json_file> [output_toml_file]")
+    print("If output_toml_file is not provided, it will default to the input file name with a .toml extension.")
+
+def print_help_info_old():
+    print_info()
     print("How to use it:")
     print("<content.json> is your input json file you want to convert")
-    print("<content.toml> is you want to output the converted toml file")
-    print("usage:")
+    print("<content.toml> is the output toml file")
+    print("Usage:")
     print("tomlifier.exe <content.json> <content.toml>\n")
 
 def clean_nulls(data):
@@ -53,7 +66,7 @@ def convert_json_to_toml(json_path: str, output_toml_path: str) -> None:
 
     # 4. Assemble final file structure
     header = (
-        "# This content.toml was created with Aurora bot by ARS7236\n"
+        "# This toml file was converted in Tomlify program by ARS7236\n"
         "# Use schema: https://ext.nulls.gg/mods/schema/schema.json\n\n"
     )
 
@@ -75,8 +88,13 @@ def convert_json_to_toml(json_path: str, output_toml_path: str) -> None:
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print_help_info()
+        print_info()
+    elif sys.argv[1] in ("-h", "--help"):
+        print_help_info_new()
+    elif sys.argv[0].endswith("tomlify.py"):
+        print_help_info_old()
     else:
         input_file = sys.argv[1]
-        output_file = sys.argv[2] if len(sys.argv) > 2 else "content.toml"
+        base_name, _ = os.path.splitext(input_file)
+        output_file = sys.argv[2] if len(sys.argv) > 2 else f"{base_name}.toml"
         convert_json_to_toml(input_file, output_file)

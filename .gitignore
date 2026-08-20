@@ -1,0 +1,27 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+
+# Virtual Enviroments
+venv/
+.venv/
+env/
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+*.spec
+
+# Executables
+*.exe
+
+# IDE / Editor directories and files
+.vscode/
+.idea/
+
+# OS-generated files / Test files
+.DS_Store
+Thumbs.db
+*.toml
+content.json
