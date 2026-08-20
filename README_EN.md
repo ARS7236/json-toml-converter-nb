@@ -9,7 +9,7 @@ I know, that's useless and why would you needed it, but who want's it?
 Current version is 2.5.0 Deep Cavern.
 
 ## How to use it
-- Download `tomlify.exe` from [releases](https://github.com/ARS7236/json-toml-converter-nb/releases).
+- Download `tomlify.exe` from latest [release](https://github.com/ARS7236/json-toml-converter-nb/releases).
 - Place the executable in the same folder as the file you want to convert, or provide file paths explicitly.
 
 ### JSON to TOML
@@ -40,3 +40,4 @@ Open a command prompt in the project folder and run:
 py build.py
 ```
 You can also double-click `build.py` to start the build.
+And done with the build. (^_^)
