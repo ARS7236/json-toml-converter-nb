@@ -1,5 +1,5 @@
 # Tomlify
-An Tool that converts content.json file into content.toml file or content.toml to content.json
+<b>An Tool that converts content.json file into content.toml file or content.toml file to content.json file.</b>
 
 ## EN: 
 # Tomlify
