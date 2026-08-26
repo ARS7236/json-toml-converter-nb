@@ -4,7 +4,7 @@ An Tool that converts content.json file into content.toml file.
 ## EN: 
 # Tomlify
 # Version 2.5.2 - Deep Cavern-[Hot Sea]
-So there's two versions(one is coming soon) of this README.
+So there's two versions of this README.
 
 If you want use ENG version then use [this README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_EN.md) file.
 
@@ -13,7 +13,7 @@ OR if you want to use RUS version then use [this README](https://github.com/ARS7
 ## RU:
 # Tomlify
 # Версия 2.5.2 - Глубокая Впадина-[Горячое Море]
-Так там есть две версии(один который будет скоро) этого README.
+Так там есть две версии этого README.
 
 Если хотите использовать АНГЛ версию то используйте [этот README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_EN.md) файл.
 
