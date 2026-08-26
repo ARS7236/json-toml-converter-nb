@@ -6,7 +6,7 @@ This tool is intended for Null's Brawl Mods modders who need to convert their `c
 I know, that's useless and why would you needed it, but who want's it? 
 (me just because im bored).
 
-Current version is 2.5.0 Deep Cavern.
+Current version is 2.5.2 Deep Cavern-[Hot Sea]
 
 ## How to use it
 - Download `tomlify.exe` from latest [release](https://github.com/ARS7236/json-toml-converter-nb/releases/latest).
