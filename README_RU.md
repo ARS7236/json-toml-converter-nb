@@ -9,7 +9,7 @@
 Текущая версия: 2.5.0 Глубокая Впадина.
 
 ## Как это использовать
-- Загрузите `tomlify.exe` из раздела [releases](https://github.com/ARS7236/json-toml-converter-nb/releases).
+- Загрузите `tomlify.exe` из раздела [releases](https://github.com/ARS7236/json-toml-converter-nb/releases/latest).
 - Поместите исполняемый файл в одну папку с файлом для преобразования или указывайте пути к файлам явно.
 
 ### JSON в TOML
