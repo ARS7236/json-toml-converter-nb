@@ -4,7 +4,7 @@ import sys
 import tomli_w
 
 PROGRAM_NAME = "Tomlify"
-VERSION = "v2.5.2 - Deep Cavern"
+VERSION = "v2.5.2 - Deep Cavern-[Hot Sea]"
 AUTHOR = "ars7236"
 BUILD_DATE = "2026-08-26"
 
