@@ -21,7 +21,7 @@ def print_info():
     print(f"Converted Toml file from {PROGRAM_NAME} is intended for use with Null's Brawl Mods and may not be compatible with other tools(like BSML by lilmuff1 on github).")
     print("If you are using converted toml file with Null's Brawl Mod, please ensure that you have the latest version of the nulls brawl installed.")
     print(f"{PROGRAM_NAME} is not responsible for any issues that may arise from using this file with other tools.")
-    print("If you are using this file with other tools, please ensure that you have the latest version of those tools installed.\n")
+    print("If you are using converted toml file with other tools, please ensure that you have the latest version of those tools installed.\n")
 
 def print_help_info_tomlify():
     print_info()
