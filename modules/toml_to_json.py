@@ -19,11 +19,11 @@ class TOMLToJSONConverter:
 
         # Restore the JSON layout used by the JSON-to-TOML converter.
         ordered_data = {}
+        ordered_data["$schema"] = "https://ext.nulls.gg/mods/schema/schema.json"
         for key in ("@title", "@description", "@author", "@gv", "@version"):
             if key in data:
                 ordered_data[key] = data.pop(key)
         ordered_data.update(data)
-        ordered_data["$schema"] = "https://ext.nulls.gg/mods/schema/schema.json"
 
         # Convert to JSON with pretty printing
         json_content = json.dumps(ordered_data, indent=2, ensure_ascii=False)

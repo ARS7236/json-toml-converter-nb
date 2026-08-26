@@ -1,6 +1,6 @@
 # Tomlify - A simple tool to convert JSON files to TOML format or TOML files to JSON format.
 # Author: ars7236
-# Version: 2.5.1 - Deep Cavern[Hot Sea]
+# Version: 2.5.2 - Deep Cavern[Hot Sea]
 # License: GNU General Public License v3.0
 
 import os
@@ -9,12 +9,19 @@ import modules.json_to_toml as JSONToTOMLConverter
 import modules.toml_to_json as TOMLToJSONConverter
 
 PROGRAM_NAME = "Tomlify"
-VERSION = "v2.5.1 - Deep Cavern[Hot Sea]"
+VERSION = "v2.5.2 - Deep Cavern[Hot Sea]"
 AUTHOR = "ars7236"
+BUILD_DATE = "2026-08-26"
 
 def print_info():
     print(f"{PROGRAM_NAME} {VERSION}")
-    print(f"Created by: {AUTHOR}\n")
+    print(f"Created by: {AUTHOR}")
+    print(f"Build date: {BUILD_DATE}\n")
+    print("If you find any issues, please report them to the author on github.\n")
+    print(f"Converted Toml file from {PROGRAM_NAME} is intended for use with Null's Brawl Mods and may not be compatible with other tools(like BSML by lilmuff1 on github).\n")
+    print("If you are using converted toml file with Null's Brawl Mod, please ensure that you have the latest version of the nulls brawl installed.\n")
+    print(f"{PROGRAM_NAME} is not responsible for any issues that may arise from using this file with other tools.\n")
+    print("If you are using this file with other tools, please ensure that you have the latest version of those tools installed.\n")
 
 def print_help_info_tomlify():
     print_info()

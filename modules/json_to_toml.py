@@ -3,9 +3,10 @@ import os
 import sys
 import tomli_w
 
-PROGRAM_NAME = "Tomlify/Jsonify"
-VERSION = "v2.5.0 - Deep Cavern"
+PROGRAM_NAME = "Tomlify"
+VERSION = "v2.5.2 - Deep Cavern"
 AUTHOR = "ars7236"
+BUILD_DATE = "2026-08-26"
 
 class JSONToTOMLConverter:
     def clean_nulls(self, data):
@@ -36,6 +37,10 @@ class JSONToTOMLConverter:
             top_meta["@version"] = clean_data.pop("@version")
         else:
             top_meta["@version"] = "1.0.0"  # Default version if not present
+        if "@patches" in clean_data:
+            top_meta["@patches"] = clean_data.pop("@patches")
+        if "@categories" in clean_data:
+            top_meta["@categories"] = clean_data.pop("@categories")
         if not top_meta:
             top_meta = None  # If no top meta fields, set to None
 
@@ -51,16 +56,11 @@ class JSONToTOMLConverter:
 
         # 4. Assemble final file structure
         header = (
-            "# This toml file was converted and formatted in Tomlify program by ARS7236\n"
-            f"# Tomlify version: {VERSION}\n"
-            "# Build date: 2026-08-20\n"
-            "# This file is generated from a JSON file and may not be perfect. Please check the output for any issues.\n"
-            "# If you find any issues, please report them to the author on github.\n"
-            "# This file is intended for use with Null's Brawl Mods and may not be compatible with other tools(like BSML by lilmuff1 on github).\n"
-            "# If you are using this file with Null's Brawl Mod, please ensure that you have the latest version of the nulls brawl installed.\n"
-            "# Tomlify is not responsible for any issues that may arise from using this file with other tools.\n"
-            "# If you are using this file with other tools, please ensure that you have the latest version of those tools installed.\n"
-            "# Use schema in your IDE: https://ext.nulls.gg/mods/schema/schema.json\n\n"
+            f"# This toml file was converted and formatted in {PROGRAM_NAME} program by {AUTHOR}\n"
+            f"# {PROGRAM_NAME} version: {VERSION}\n"
+            f"# Build date: {BUILD_DATE}\n"
+            f"# This file is generated from a JSON file and may not be perfect. Please check the output for any issues.\n"
+            f"# Use schema in your IDE: https://ext.nulls.gg/mods/schema/schema.json\n\n"
         )
 
         final_content = header
