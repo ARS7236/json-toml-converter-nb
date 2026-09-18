@@ -17,7 +17,7 @@ def print_info():
     print(f"{PROGRAM_NAME} {VERSION}")
     print(f"Created by: {AUTHOR}")
     print(f"Build date: {BUILD_DATE}")
-    print("If you find any issues, please report them to the author on github.\n")
+    print("If you find any issues, please report them to the author on github.")
     print(f"Converted Toml file from {PROGRAM_NAME} is intended for use with Null's Brawl Mods and may not be compatible with other tools(like BSML by lilmuff1 on github).")
     print("If you are using converted toml file with Null's Brawl Mod, please ensure that you have the latest version of the nulls brawl installed.")
     print(f"{PROGRAM_NAME} is not responsible for any issues that may arise from using this file with other tools.")
