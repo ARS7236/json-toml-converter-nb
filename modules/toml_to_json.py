@@ -20,7 +20,9 @@ class TOMLToJSONConverter:
         except Exception as e:
             print(f"Error: Failed to read '{toml_path}': {e}")
             return
-
+        if os.path.exists(output_json_path):
+            print(f"Warning: Output file '{output_json_path}' already exists and will be overwritten.")
+        
         # Restore the JSON layout used by the JSON-to-TOML converter.
         ordered_data = {}
         ordered_data["$schema"] = "https://ext.nulls.gg/mods/schema/schema.json"

@@ -26,7 +26,9 @@ class JSONToTOMLConverter:
         except json.JSONDecodeError:
             print(f"Error: '{json_path}' is not valid JSON.")
             return
-
+        if os.path.exists(output_toml_path):
+            print(f"Warning: Output file '{output_toml_path}' already exists and will be overwritten.")
+        
         data.pop("$schema", None)
         clean_data = self.clean_nulls(data)
 
