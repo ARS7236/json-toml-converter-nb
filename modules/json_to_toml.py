@@ -8,6 +8,9 @@ AUTHOR = "ars7236"
 BUILD_DATE = "2026-09-26"
 
 class JSONToTOMLConverter:
+    def __init__(self):
+        self.output_already_exists = False
+
     def clean_nulls(self, data):
         if isinstance(data, dict):
             return {k: self.clean_nulls(v) for k, v in data.items() if v is not None}
@@ -16,6 +19,7 @@ class JSONToTOMLConverter:
         return data
 
     def convert_json_to_toml(self, json_path: str, output_toml_path: str) -> None:
+        self.output_already_exists = os.path.exists(output_toml_path)
         if not os.path.exists(json_path):
             print(f"Error: Target file '{json_path}' was not found.")
             return
@@ -83,5 +87,6 @@ class JSONToTOMLConverter:
         # 5. Save to output
         with open(output_toml_path, "w", encoding="utf-8") as f:
             f.write(final_content)
-
+        if self.output_already_exists:
+            print(f"NOTE: {output_toml_path} has been overwritten.")
         print(f"Successfully converted '{json_path}' -> '{output_toml_path}'")
