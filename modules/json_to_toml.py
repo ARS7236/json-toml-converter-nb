@@ -59,9 +59,11 @@ class JSONToTOMLConverter:
 
         # 4. Assemble final file structure
         header = (
-            f"# This toml file was converted and formatted in {PROGRAM_NAME} program by {AUTHOR}\n"
+            f"# This toml file was converted in {PROGRAM_NAME} program by {AUTHOR}\n"
             f"# {PROGRAM_NAME} version: {VERSION}\n"
             f"# Build date: {BUILD_DATE}\n"
+            "# This file is generated from a JSON file and may not be perfect. Please check the output for any issues.\n"
+            "# Use schema in your IDE: https://ext.nulls.gg/mods/schema/schema.json\n\n"
             "# This file is generated from a JSON file and may not be perfect. Please check the output for any issues.\n"
             "# Use schema in your IDE: https://ext.nulls.gg/mods/schema/schema.json\n\n"
         )
