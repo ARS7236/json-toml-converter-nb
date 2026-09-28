@@ -1,12 +1,11 @@
 import json
 import os
-import sys
 import tomli_w
 
 PROGRAM_NAME = "Tomlify"
-VERSION = "v2.5.2 - Deep Cavern"
+VERSION = "v2.5.3 - Deep Cavern"
 AUTHOR = "ars7236"
-BUILD_DATE = "2026-08-26"
+BUILD_DATE = "2026-09-26"
 
 class JSONToTOMLConverter:
     def clean_nulls(self, data):
@@ -21,8 +20,12 @@ class JSONToTOMLConverter:
             print(f"Error: Target file '{json_path}' was not found.")
             return
 
-        with open(json_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except json.JSONDecodeError:
+            print(f"Error: '{json_path}' is not valid JSON.")
+            return
 
         data.pop("$schema", None)
         clean_data = self.clean_nulls(data)
@@ -59,8 +62,8 @@ class JSONToTOMLConverter:
             f"# This toml file was converted and formatted in {PROGRAM_NAME} program by {AUTHOR}\n"
             f"# {PROGRAM_NAME} version: {VERSION}\n"
             f"# Build date: {BUILD_DATE}\n"
-            f"# This file is generated from a JSON file and may not be perfect. Please check the output for any issues.\n"
-            f"# Use schema in your IDE: https://ext.nulls.gg/mods/schema/schema.json\n\n"
+            "# This file is generated from a JSON file and may not be perfect. Please check the output for any issues.\n"
+            "# Use schema in your IDE: https://ext.nulls.gg/mods/schema/schema.json\n\n"
         )
 
         final_content = header

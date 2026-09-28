@@ -14,8 +14,12 @@ class TOMLToJSONConverter:
             print(f"Error: Target file '{toml_path}' was not found.")
             return
 
-        with open(toml_path, "r", encoding="utf-8") as f:
-            data = tomllib.loads(f.read())
+        try:
+            with open(toml_path, "r", encoding="utf-8") as f:
+                data = tomllib.loads(f.read())
+        except Exception as e:
+            print(f"Error: Failed to read '{toml_path}': {e}")
+            return
 
         # Restore the JSON layout used by the JSON-to-TOML converter.
         ordered_data = {}

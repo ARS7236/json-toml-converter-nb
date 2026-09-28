@@ -1,20 +1,37 @@
+*If you want use ENG version then use [this README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_EN.md) file.*
 # Tomlify
-An Tool that converts content.json file into content.toml file.
+Версия 2.5.2 - Глубокая Впадина-[Горячое Море]
+# Инструмент для конвертирования JSON в TOML и TOML в JSON
+## Как это использовать
+- Загрузите `tomlify.exe` из раздела [releases](https://github.com/ARS7236/json-toml-converter-nb/releases/latest).
+- Поместите исполняемый файл в одну папку с файлом для преобразования или указывайте пути к файлам явно.
 
-## EN: 
-# Tomlify
-# Version 2.5.2 - Deep Cavern-[Hot Sea]
-So there's two versions(one is coming soon) of this README.
+### JSON в TOML
+Выходной файл можно не указывать. Если его имя не указано, рядом с исходным JSON-файлом будет создан файл с расширением `.toml`.
+```
+tomlify.exe tomlify <content.json> [content.toml]
+```
 
-If you want use ENG version then use [this README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_EN.md) file.
+### TOML в JSON
+Выходной файл также можно не указывать. Если его имя не указано, рядом с исходным TOML-файлом будет создан файл с расширением `.json`.
+```text
+tomlify.exe jsonify <content.toml> [content.json]
+```
 
-OR if you want to use RUS version then use [this README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_RU.md) file.
+Для просмотра справки используйте `tomlify.exe --help tomlify` или `tomlify.exe --help jsonify`.
 
-## RU:
-# Tomlify
-# Версия 2.5.2 - Глубокая Впадина-[Горячое Море]
-Так там есть две версии(один который будет скоро) этого README.
+## Сборка
+Чтобы собрать инструмент на своём ПК, используйте готовый скрипт `build.py`. Скрипт, главный файл и папка `modules` должны находиться вместе:
+- `build.py`
+- tomlify.py
+- `modules/json_to_toml.py`
+- `modules/toml_to_json.py`
 
-Если хотите использовать АНГЛ версию то используйте [этот README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_EN.md) файл.
+Скрипт сборки использует PyInstaller и включает оба модуля преобразования в исполняемый файл. После сборки готовый `tomlify.exe` помещается в корневую папку проекта, а временные файлы удаляются.
 
-ИЛИ если хотите использовать РУС версию то используйте [этот README](https://github.com/ARS7236/json-toml-converter-nb/blob/main/README_RU.md) файл.
+Откройте командную строку в папке проекта и выполните:
+```
+py build.py
+```
+Также можно дважды щёлкнуть по файлу `build.py`, чтобы запустить сборку.
+И все сделано со сборкой. (^_^)

@@ -25,3 +25,7 @@ dist/
 Thumbs.db
 *.toml
 *.json
+
+# Legacy files
+*.bak
+README_RU.md
